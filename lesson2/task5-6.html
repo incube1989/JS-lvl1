@@ -1,0 +1,34 @@
+<script>
+  function add(arg1, arg2){
+    return arg1 + arg2;
+  }
+
+  function subtract(arg1, arg2){
+    return arg1 - arg2;
+  }
+
+  function muptiply(arg1, arg2){
+    return arg1 * arg2;
+  }
+
+  function divide(arg1, arg2){
+    return arg1 / arg2;
+  }
+
+  function mathOperation(arg1, arg2, operation){
+    let answer;
+    switch (operation){
+      case 'add': answer = add(arg1,arg2); break;
+      case 'subtract': answer = subtract(arg1,arg2); break;
+      case 'muptiply': answer = muptiply(arg1,arg2); break;
+      case 'divide': answer = divide(arg1,arg2); break;
+      default: answer = 'This is not the name of math operation';
+    }
+    return answer;
+  }
+
+  var a = parseInt(prompt("Enter a"));
+  var b = parseInt(prompt("Enter b"));
+  var operation = prompt("Enter operation name");
+  alert (mathOperation(a,b,operation));
+</script>

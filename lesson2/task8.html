@@ -1,0 +1,9 @@
+<script>
+  function power(val, pow){
+    return ((pow != 1) ? val * power(val, pow - 1) : val);
+  }
+
+  var value = parseInt(prompt('Enter value'));
+  var pow = parseInt(prompt('Enter power'));
+  alert (power(value,pow));
+</script>
