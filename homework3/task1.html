@@ -1,0 +1,20 @@
+<script>
+  var i = 1;
+  var answer = '';
+  while (i<=100) {
+    var j = 2;
+    var simple = true;
+    while (j<i){
+      if (i % j == 0) {
+        simple = false;
+        break;
+      }
+      j++;
+    }
+    if (simple) {
+      answer += i + ' ';
+    }
+    i++;
+  }
+  alert(answer);
+</script>

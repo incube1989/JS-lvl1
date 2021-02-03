@@ -1,0 +1,31 @@
+<script>
+  var basket = {
+    products : [
+      {
+        name :'Суши филадельфия',
+        price: 450,
+      },
+      {
+        name :'Суши аляска',
+        price: 275,
+      },
+      {
+        name :'Бургер',
+        price: 320,
+      }
+    ]
+  }
+
+  function sumPrice(basket){
+    var answer = 0;
+    var i = 1;
+    while (basket.products[i] != null){
+      answer += basket.products[i].price;
+      i++
+    }
+    return answer;
+    
+  }
+  
+  alert(sumPrice(basket));
+</script>
