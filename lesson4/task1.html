@@ -1,0 +1,19 @@
+<script>
+  function turnIntiDigits( number){
+    
+    if (number> 999 || number < 0) {
+      console.log("Error: number is out of range 0..999");
+      return null;
+    }
+    var answer = {};
+    answer.units = number % 10;
+    answer.decimals = Math.floor(number %100 /10);
+    answer.hundreds = Math.floor(number/100);
+    return answer;
+  }
+
+
+  var a = parseInt(prompt("Enter value 0..999: "));
+
+  console.log(turnIntiDigits(a));
+</script>
