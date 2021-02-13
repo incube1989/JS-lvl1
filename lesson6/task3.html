@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 6</title>	
+  <style>
+    
+  </style>
+    <script>
+      var size = 4;
+      function goLeft(){
+        var mainImage = document.getElementsByClassName("cat")[0]
+        var current = mainImage.id;
+        console.log(current);
+        current--;
+        if (current < 0) {current = size}
+        mainImage.src =`images/cat${current}.jpg`;
+        mainImage.id = current;
+
+      }
+    
+      function goRight(){
+        var mainImage = document.getElementsByClassName("cat")[0]
+        var current = mainImage.id;
+        console.log(current);
+        current++;
+        if (current == size) {current = 0}
+        mainImage.src =`images/cat${current}.jpg`;
+        mainImage.id = current;
+    
+      }
+    </script>
+</head>
+
+<body>
+
+  <div>
+    <img class = "cat" id="0" src="images/cat0.jpg" width="400" height="300" />
+  </div>
+  <img id="left-arrow"src="images/arrow.png" width="80" height="80" style = "transform: rotateY(180deg);" onclick="goLeft()"/>
+  <img id="right-arrow"src="images/arrow.png" width="80" height="80" onclick="goRight()"/>
+</body>
+</html>
