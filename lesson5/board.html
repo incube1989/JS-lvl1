@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>ChessBoard</title>
+   <style>
+    .board { border-spacing: 0; border-collapse: collapse; }
+    .board th { padding: .5em; transform: rotate(180deg);}
+    .board td { border: 0px solid; width: 3em; height: 3em; text-align: center; font-size: 12pt;font-weight: bolder}
+    .board .light { background: rgb(155, 153, 153); }
+    .board .dark { background: rgb(83, 83, 83); }
+    .figure {text-shadow: #eee;}
+</style>
+</head>
+<body>
+  <table class = "board" border-collapse = "collapse">
+
+  </table>
+</body>
+<script>
+  const letters = [" ","a","b","c","d","e","f","g","h"," "];
+  const whiteFigures = ["&#9817;","&#9814;","&#9816;","&#9815;","&#9813;","&#9812;","&#9815;","&#9816;","&#9814;",""];
+  const blackFigures = ["&#9823;","&#9820;","&#9822;","&#9821;","&#9819;","&#9818;","&#9821;","&#9822;","&#9820;","",];
+
+  var size = 10;
+
+  var board = {
+    drawCell : function (node,i,j){
+      // проеверяем что это краешки
+      if ( i == 0  && j >0 && j < size -1 ) {
+        node.innerHTML = letters[j];
+        node.style.transform = "rotate(180deg)";
+
+      }
+      if ( i == size -1   && j >0 && j < size -1) {
+        node.innerHTML = letters[j];
+
+      }
+      if ( j== 0  && i >0 && i < size - 1) {
+        node.innerHTML = i;
+        node.style.transform = "rotate(90deg)";
+      }
+      if ( j == size -1   && i >0 && i < size - 1) {
+        node.innerHTML = i;
+        node.style.transform = "rotate(270deg)";
+
+      }
+      //проверяем что это клетка
+      if (!(i == 0 || j == 0 || i == size - 1 || j == size - 1 )){
+        if ((i + j) % 2 == 0) {
+          node.classList.add("light")
+        }
+        else {
+          node.classList.add("dark")
+        }
+        // В клетке может стоять фигура  
+        if (i == 1){
+          node.innerHTML = whiteFigures[j];
+          node.classList.add("figure")
+        }
+        if (i == 2) {
+          node.innerHTML = whiteFigures[0];
+          node.classList.add("figure")
+
+        }
+        if (i == size - 2 ){
+          node.innerHTML = blackFigures[j];
+          node.classList.add("figure")
+
+        }
+        if (i == size - 3 ){
+          node.innerHTML = blackFigures[0];
+          node.classList.add("figure")
+
+        }
+      }
+    }
+  }
+
+
+  var table = document.getElementsByClassName("board")[0];
+  for(var i = 0; i < size; i++){
+    var row = document.createElement("tr");
+    table.appendChild(row);
+    for(var j = 0; j < size; j++){
+      console.log(i,j);
+      var cell = document.createElement("td");
+      row.appendChild(cell);
+      board.drawCell(cell,i,j);
+    }
+  }
+
+</script>
+</html>
